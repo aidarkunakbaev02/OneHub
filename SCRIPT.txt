@@ -1,0 +1,547 @@
+
+local ESP = loadstring(game:HttpGet("https://raw.githubusercontent.com/linemaster2/esp-library/main/library.lua"))();
+
+
+
+
+
+ESP.Enabled = false;
+
+ESP.ShowBox = false;
+
+ESP.ShowName = false;
+
+ESP.ShowHealth = false;
+
+ESP.ShowTracer = false;
+
+ESP.ShowDistance = false;
+
+ESP.ShowSkeletons = false;
+
+
+
+    local ESP_SETTINGS = {
+
+        BoxOutlineColor = Color3.new(1, 1, 1),
+
+        BoxColor = Color3.new(1, 1, 1),
+
+        NameColor = Color3.new(1, 1, 1),
+
+        HealthOutlineColor = Color3.new(0, 0, 0),
+
+        HealthHighColor = Color3.new(0, 1, 0),
+
+        HealthLowColor = Color3.new(1, 0, 0),
+
+        CharSize = Vector2.new(4, 6),
+
+        Teamcheck = false,
+
+        WallCheck = false,
+
+        Enabled = false,
+
+        ShowBox = false,
+
+        BoxType = "2D",
+
+        ShowName = false,
+
+        ShowHealth = false,
+
+        ShowDistance = false,
+
+        ShowSkeletons = false,
+
+        ShowTracer = false,
+
+        TracerColor = Color3.new(1, 1, 1), 
+
+        TracerThickness = 2,
+
+        SkeletonsColor = Color3.new(1, 1, 1),
+
+        TracerPosition = "Bottom",
+
+    }
+
+
+
+
+
+
+loadstring(game:HttpGet(("https://raw.githubusercontent.com/REDzHUB/LibraryV2/main/redzLib")))()
+MakeWindow({
+  Hub = {
+    Title = "OneTap //Alpha Build\\ No scope arcade",
+    Animation = "by : SanTeam"
+  },
+  Key = {
+    KeySystem = false,
+    Title = "Key System",
+    Description = "",
+    KeyLink = "",
+    Keys = {"1234"},
+    Notifi = {
+      Notifications = true,
+      CorrectKey = "Running the Script...",
+      Incorrectkey = "The key is incorrect",
+      CopyKeyLink = "Copied to Clipboard"
+    }
+  }
+})
+
+
+MinimizeButton({
+  Image = "",
+  Size = {40, 40},
+  Color = Color3.fromRGB(10, 10, 10),
+  Corner = true,
+  Stroke = false,
+  StrokeColor = Color3.fromRGB(255, 0, 0)
+})
+
+local Main = MakeTab({Name = "Main"})
+
+AddButton(Main, {
+  Name = "HitBox Big (100)",
+  Callback = function()
+    _G.HeadSize = 100
+_G.Disabled = true
+ 
+game:GetService('RunService').RenderStepped:connect(function()
+if _G.Disabled then
+for i,v in next, game:GetService('Players'):GetPlayers() do
+if v.Name ~= game:GetService('Players').LocalPlayer.Name then
+pcall(function()
+v.Character.HumanoidRootPart.Size = Vector3.new(_G.HeadSize,_G.HeadSize,_G.HeadSize)
+v.Character.HumanoidRootPart.Transparency = 0.7
+v.Character.HumanoidRootPart.BrickColor = BrickColor.new("Really blue")
+v.Character.HumanoidRootPart.Material = "Neon"
+v.Character.HumanoidRootPart.CanCollide = false
+end)
+end
+end
+end
+end)
+  end
+})
+
+AddButton(Main, {
+  Name = "HitBox medium (50)",
+  Callback = function()
+    _G.HeadSize = 50
+_G.Disabled = true
+ 
+game:GetService('RunService').RenderStepped:connect(function()
+if _G.Disabled then
+for i,v in next, game:GetService('Players'):GetPlayers() do
+if v.Name ~= game:GetService('Players').LocalPlayer.Name then
+pcall(function()
+v.Character.HumanoidRootPart.Size = Vector3.new(_G.HeadSize,_G.HeadSize,_G.HeadSize)
+v.Character.HumanoidRootPart.Transparency = 0.7
+v.Character.HumanoidRootPart.BrickColor = BrickColor.new("Really blue")
+v.Character.HumanoidRootPart.Material = "Neon"
+v.Character.HumanoidRootPart.CanCollide = false
+end)
+end
+end
+end
+end)
+  end
+})
+
+AddButton(Main, {
+  Name = "HitBox Small (20)",
+  Callback = function()
+    _G.HeadSize = 20
+_G.Disabled = true
+ 
+game:GetService('RunService').RenderStepped:connect(function()
+if _G.Disabled then
+for i,v in next, game:GetService('Players'):GetPlayers() do
+if v.Name ~= game:GetService('Players').LocalPlayer.Name then
+pcall(function()
+v.Character.HumanoidRootPart.Size = Vector3.new(_G.HeadSize,_G.HeadSize,_G.HeadSize)
+v.Character.HumanoidRootPart.Transparency = 0.7
+v.Character.HumanoidRootPart.BrickColor = BrickColor.new("Really blue")
+v.Character.HumanoidRootPart.Material = "Neon"
+v.Character.HumanoidRootPart.CanCollide = false
+end)
+end
+end
+end
+end)
+  end
+})
+
+
+
+local Main = MakeTab({Name = "esp v2"})
+
+
+
+
+
+local Toggle = AddToggle(Main, {
+
+  Name = "Enabled",
+
+  Default = false,
+
+  Callback = function(Value)
+
+    ESP.Enabled = Value;
+
+  end
+
+})
+
+
+
+local Toggle = AddToggle(Main, {
+
+  Name = "Name",
+
+  Default = false,
+
+  Callback = function(Value)
+
+    ESP.ShowName = Value;
+
+  end
+
+})
+
+
+
+local Toggle = AddToggle(Main, {
+
+  Name = "Box",
+
+  Default = false,
+
+  Callback = function(Value)
+
+    ESP.ShowBox = Value;
+
+  end
+
+})
+
+
+
+local Toggle = AddToggle(Main, {
+
+  Name = "Tracer",
+
+  Default = false,
+
+  Callback = function(Value)
+
+    ESP.ShowTracer = Value;
+
+  end
+
+})
+
+
+
+local Toggle = AddToggle(Main, {
+
+  Name = "Health",
+
+  Default = false,
+
+  Callback = function(Value)
+
+    ESP.ShowHealth = Value;
+
+  end
+
+})
+
+
+
+local Toggle = AddToggle(Main, {
+
+  Name = "Skeletons",
+
+  Default = false,
+
+  Callback = function(Value)
+
+    ESP.ShowSkeletons = Value;
+
+  end
+
+})
+
+
+
+
+
+
+
+local Toggle = AddToggle(Main, {
+
+  Name = "Distance",
+
+  Default = false,
+
+  Callback = function(Value)
+
+    ESP.ShowDistance = Value;
+
+  end
+
+})
+
+
+
+
+
+local Toggle = AddToggle(Main, {
+
+  Name = "Team check",
+
+  Default = false,
+
+  Callback = function(Value)
+
+    ESP.Teamcheck = Value;	
+
+  end
+
+})
+
+
+
+local Toggle = AddToggle(Main, {
+
+  Name = "Wall check",
+
+  Default = false,
+
+  Callback = function(Value)
+
+    ESP.WallCheck = Value;
+
+  end
+
+})
+
+
+
+
+
+
+
+
+
+
+
+
+
+local Dropdown = AddDropdown(Main, {
+
+  Name = "Tracer",
+
+  Options = {"Bottom", "Top", "Middle"},
+
+  Default = "Top",
+
+  Callback = function(Value)
+
+    ESP.TracerPosition = Value;
+
+  end
+
+})
+
+
+
+local Dropdown = AddDropdown(Main, {
+
+  Name = "Box",
+
+  Options = {"2D", "Corner Box Esp"},
+
+  Default = "2D",
+
+  Callback = function(Value)
+
+    ESP.BoxType = Value
+
+  end
+
+})
+
+
+local Main = MakeTab({Name = "AIMBOT"})
+
+
+
+
+AddButton(Main, {
+  Name = "AimBot Small",
+  Callback = function()
+    _G.config = {
+Fov = 30,
+MaxTransparency = 0.1,
+Smoothness = 1,
+TargetPart = "Head",
+TeamCheck = false,
+WallCheck = true,
+MaxDistanceEnabled = false,
+MaxDistance = 1500,
+FovColor = Color3.fromRGB(255, 0, 0.)
+}
+
+loadstring(game:HttpGet("https://raw.githubusercontent.com/dqtixz/aimbot/main/Projeto%20LKA%20x%20F%20Hub", true))()
+l:Notify("Aim loaded!","Aim",3)
+  end
+})
+
+
+
+AddButton(Main, {
+  Name = "Aimbot Medium",
+  Callback = function()
+    _G.config = {
+Fov = 40,
+MaxTransparency = 0.1,
+Smoothness = 1,
+TargetPart = "Head",
+TeamCheck = false,
+WallCheck = true,
+MaxDistanceEnabled = false,
+MaxDistance = 1500,
+FovColor = Color3.fromRGB(255, 0, 0.)
+}
+
+loadstring(game:HttpGet("https://raw.githubusercontent.com/dqtixz/aimbot/main/Projeto%20LKA%20x%20F%20Hub", true))()
+l:Notify("Aim loaded!","Aim",3)
+  end
+})
+
+
+
+
+
+AddButton(Main, {
+  Name = "AimBot Big",
+  Callback = function()
+    _G.config = {
+Fov = 50,
+MaxTransparency = 0.1,
+Smoothness = 1,
+TargetPart = "Head",
+TeamCheck = false,
+WallCheck = true,
+MaxDistanceEnabled = false,
+MaxDistance = 1500,
+FovColor = Color3.fromRGB(255, 0, 0.)
+}
+
+loadstring(game:HttpGet("https://raw.githubusercontent.com/dqtixz/aimbot/main/Projeto%20LKA%20x%20F%20Hub", true))()
+l:Notify("Aim loaded!","Aim",3)
+  end
+})
+
+
+
+
+AddButton(Main, {
+  Name = "AimBot 140 Fov",
+  Callback = function()
+    _G.config = {
+Fov = 140,
+MaxTransparency = 0.1,
+Smoothness = 1,
+TargetPart = "Head",
+TeamCheck = false,
+WallCheck = true,
+MaxDistanceEnabled = false,
+MaxDistance = 1500,
+FovColor = Color3.fromRGB(255, 0, 0.)
+}
+
+loadstring(game:HttpGet("https://raw.githubusercontent.com/dqtixz/aimbot/main/Projeto%20LKA%20x%20F%20Hub", true))()
+l:Notify("Aim loaded!","Aim",3)
+  end
+})
+
+
+
+
+local Main = MakeTab({Name = "Misc"})
+AddTextBox(Main, {
+  Name = "Hitbox Size",
+  Default = "",
+  PlaceholderText = "Value",
+  ClearText = true,
+  Callback = function(Value)
+    _G.HeadSize = Value
+_G.Disabled = true
+ 
+game:GetService('RunService').RenderStepped:connect(function()
+if _G.Disabled then
+for i,v in next, game:GetService('Players'):GetPlayers() do
+if v.Name ~= game:GetService('Players').LocalPlayer.Name then
+pcall(function()
+v.Character.HumanoidRootPart.Size = Vector3.new(_G.HeadSize,_G.HeadSize,_G.HeadSize)
+v.Character.HumanoidRootPart.Transparency = 0.7
+v.Character.HumanoidRootPart.BrickColor = BrickColor.new("Really blue")
+v.Character.HumanoidRootPart.Material = "Neon"
+v.Character.HumanoidRootPart.CanCollide = false
+end)
+end
+end
+end
+end)
+  end
+})
+
+
+
+
+local Toggle = AddToggle(Main, {
+  Name = "Inf Jump",
+  Default = false,
+  Callback = function(Value)
+Toggled = Value
+    
+local InfiniteJumpEnabled = Value
+
+game:GetService("UserInputService").JumpRequest:connect(function()
+
+	if InfiniteJumpEnabled then		game:GetService"Players".LocalPlayer.Character:FindFirstChildOfClass'Humanoid':ChangeState("Jumping")
+
+	end
+
+end)
+ end
+})
+
+
+
+AddButton(Main, {
+  Name = "Chat Spam",
+  Callback = function()
+    local settings = {
+   AutoChat_Time = 4,
+   AutoChat_Delay = 4,
+   AutoChat = true,
+}
+
+local chatrem = game.ReplicatedStorage.DefaultChatSystemChatEvents.SayMessageRequest
+
+while task.wait(settings.AutoChat_Time) do
+    chatrem:FireServer('Onetap on top!', "All")
+    print("Sent Message")
+end
+  end
+})
